@@ -23,7 +23,6 @@ namespace Web3MultiplayerRPG
         [Header("UI Panels")]
         [SerializeField] private GameObject loadingPanel;
         [SerializeField] private GameObject transactionPanel;
-        [SerializeField] private GameObject leaveRoomPanel;
          public Transform pausedMenu;
 
         [Header("Audio")]
@@ -49,18 +48,16 @@ namespace Web3MultiplayerRPG
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                leaveRoomPanel.SetActive(true);
-            }
-
-             if (Input.GetKeyDown(KeyCode.P))
+            
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Paused();
         }
+
         }
 
-         public void Paused()
+    public void Paused()
+    
     {
         if (pausedMenu.gameObject.activeInHierarchy == false)
         {
@@ -150,15 +147,7 @@ namespace Web3MultiplayerRPG
             }
         }
 
-        public void LeaveRoom()
-        {
-            PhotonNetwork.LeaveRoom();
-        }
-
-        public override void OnLeftRoom()
-        {
-            SceneManager.LoadScene("Login");
-        }
+       
 
         #endregion
     }

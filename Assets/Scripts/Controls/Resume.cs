@@ -6,6 +6,7 @@ using UnityEngine;
 public class Resume : MonoBehaviour
 {
     public Button resume;
+    public Transform pausedMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,9 @@ public class Resume : MonoBehaviour
     }
 
     public void Clicked()
-    {
-        FindObjectOfType<GameManager>().Paused();
+    { 
+        pausedMenu.gameObject.SetActive(false);
+            Time.timeScale = 1;
+            AudioListener.pause = false;
     }
 }
